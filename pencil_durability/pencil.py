@@ -1,9 +1,11 @@
 WHITESPACE_CHARACTER_COST = 0
 UPPERCASE_CHARACTER_COST = 2
 LOWERCASE_CHARACTER_COST = 1
+DEFAULT_DURABILITY = 20
+
 
 class Pencil:
-    def __init__(self, durability=20):
+    def __init__(self, durability=DEFAULT_DURABILITY):
         self.durability = durability
 
     def write(self, text, paper):
@@ -36,4 +38,3 @@ class Pencil:
             return UPPERCASE_CHARACTER_COST
 
         return LOWERCASE_CHARACTER_COST
-
