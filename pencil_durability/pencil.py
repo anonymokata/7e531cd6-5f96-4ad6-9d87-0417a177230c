@@ -38,3 +38,6 @@ class Pencil:
             return UPPERCASE_CHARACTER_COST
 
         return LOWERCASE_CHARACTER_COST
+
+    def sharpen(self):
+        self.durability = 20

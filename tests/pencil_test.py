@@ -71,5 +71,12 @@ class PencilTests(unittest.TestCase):
 
         self.assertEqual('THIS IS A REA                    ', paper.text)
 
+    def test_sharpening_a_pencil_restores_its_original_durability(self):
+        self.pencil.write('AAAAAA', Paper())
+        self.pencil.sharpen()
+
+        self.assertEqual(20, self.pencil.durability)
+
+
 if __name__ == '__main__':
     unittest.main()
