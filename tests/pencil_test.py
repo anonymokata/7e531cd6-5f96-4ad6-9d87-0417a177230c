@@ -34,5 +34,12 @@ class PencilTests(unittest.TestCase):
 
         self.assertEqual(19, pencil.durability)
 
+    def test_writing_multiple_lower_case_letters_decreases_durability_for_each_letter(self):
+        pencil = Pencil()
+
+        pencil.write('aaa', Paper())
+
+        self.assertEqual(17, pencil.durability)
+
 if __name__ == '__main__':
     unittest.main()
