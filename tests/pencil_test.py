@@ -93,5 +93,13 @@ class PencilTests(unittest.TestCase):
 
         self.assertEqual(9, self.pencil.length)
 
+    def test_sharpening_a_short_pencil_does_not_change_durability(self):
+        pencil = Pencil(length=0, durability=10)
+        pencil.write('AAAA', Paper())
+
+        pencil.sharpen()
+
+        self.assertEqual(2, pencil.durability)
+
 if __name__ == '__main__':
     unittest.main()

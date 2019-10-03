@@ -2,13 +2,14 @@ WHITESPACE_CHARACTER_COST = 0
 UPPERCASE_CHARACTER_COST = 2
 LOWERCASE_CHARACTER_COST = 1
 DEFAULT_DURABILITY = 20
+DEFAULT_LENGTH = 10
 
 
 class Pencil:
-    def __init__(self, durability=DEFAULT_DURABILITY):
+    def __init__(self, durability=DEFAULT_DURABILITY, length=DEFAULT_LENGTH):
         self.initial_durability = durability
         self.durability = durability
-        self.length = 10
+        self.length = length
 
     def write(self, text, paper):
         for char in text:
@@ -42,5 +43,8 @@ class Pencil:
         return LOWERCASE_CHARACTER_COST
 
     def sharpen(self):
+        if self.length == 0:
+            return
+
         self.length -= 1
         self.durability = self.initial_durability
