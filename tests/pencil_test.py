@@ -59,5 +59,10 @@ class PencilTests(unittest.TestCase):
 
         self.assertEqual(20, self.pencil.durability)
 
+    def test_writing_new_lines_does_not_affect_durability(self):
+        self.pencil.write('\n', Paper())
+
+        self.assertEqual(20, self.pencil.durability)
+
 if __name__ == '__main__':
     unittest.main()
