@@ -121,7 +121,7 @@ class PencilTests(unittest.TestCase):
 
         self.assertEqual('This is some     ', paper.text)
 
-    def test_erasing_text_from_paper_with_multiple_occurances_of_text_replaces_the_last_one_with_spaces(self):
+    def test_erasing_text_from_paper_with_multiple_occurrences_of_text_replaces_the_last_one_with_spaces(self):
         paper = Paper('something goes in this something')
 
         self.pencil.erase('some', paper)
