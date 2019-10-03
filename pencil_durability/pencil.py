@@ -8,15 +8,15 @@ class Pencil:
 
     def _write_character(self, char, paper):
         cost = Pencil._determine_cost_of_character(char)
+        character_to_append = ' '
         if char.isspace():
-            paper.append(char)
+            character_to_append = char
         elif char.isupper() and self.durability >= 2:
-            paper.append(char)
+            character_to_append = char
         elif self.durability >= 1:
-            paper.append(char)
-        else:
-            paper.append(' ')
+            character_to_append = char
 
+        paper.append(character_to_append)
         self.durability -= cost
 
     @staticmethod
