@@ -51,4 +51,6 @@ class Pencil:
 
     def erase(self, text, paper):
         replacement = ' ' * len(text)
-        paper.text = paper.text.replace(text, replacement, 1)
+        reversed_paper_text = paper.text[::-1]
+        reversed_text = text[::-1]
+        paper.text = reversed_paper_text.replace(reversed_text, replacement, 1)[::-1]

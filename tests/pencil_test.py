@@ -128,5 +128,6 @@ class PencilTests(unittest.TestCase):
 
         self.assertEqual('something goes in this     thing', paper.text)
 
+
 if __name__ == '__main__':
     unittest.main()
