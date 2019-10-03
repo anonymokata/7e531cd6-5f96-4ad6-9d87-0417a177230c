@@ -127,5 +127,12 @@ class PencilTests(unittest.TestCase):
 
         self.assertEqual('something goes in this     thing', paper.text)
 
+    def test_erasing_text_degrades_eraser_by_one_for_a_single_letter(self):
+        paper = Paper('this is stuff')
+
+        self.pencil.erase('f', paper)
+
+        self.assertEqual(4, self.pencil.eraser_durability)
+
 if __name__ == '__main__':
     unittest.main()
