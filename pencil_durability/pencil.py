@@ -1,3 +1,7 @@
+WHITESPACE_CHARACTER_COST = 0
+UPPERCASE_CHARACTER_COST = 2
+LOWERCASE_CHARACTER_COST = 1
+
 class Pencil:
     def __init__(self, durability=20):
         self.durability = durability
@@ -26,10 +30,10 @@ class Pencil:
     @staticmethod
     def _determine_cost_of_character(char):
         if char.isspace():
-            return 0
+            return WHITESPACE_CHARACTER_COST
 
         if char.isupper():
-            return 2
+            return UPPERCASE_CHARACTER_COST
 
-        return 1
+        return LOWERCASE_CHARACTER_COST
 
