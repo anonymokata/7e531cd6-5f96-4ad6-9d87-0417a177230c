@@ -9,7 +9,10 @@ class Pencil:
 
     @staticmethod
     def _get_durability_cost_of_text(text):
-        cost = len(text)
-        if text == 'A':
-            cost += 1
+        cost = 0
+        for char in text:
+            if char.isupper():
+                cost += 2
+            else:
+                cost += 1
         return cost
