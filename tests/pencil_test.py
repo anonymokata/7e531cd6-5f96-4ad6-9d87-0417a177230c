@@ -23,6 +23,9 @@ class PencilTests(unittest.TestCase):
 
         self.assertEqual('Sally sells sea shells down by the sea shore', paper.text)
 
+    def test_pencil_durability_defaults_to_twenty(self):
+        pencil = Pencil()
+        self.assertEqual(20, pencil.durability)
 
 if __name__ == '__main__':
     unittest.main()
