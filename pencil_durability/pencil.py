@@ -51,4 +51,4 @@ class Pencil:
 
     def erase(self, text, paper):
         replacement = ' ' * len(text)
-        paper.text = paper.text.replace(text, replacement)
+        paper.text = paper.text.replace(text, replacement, 1)

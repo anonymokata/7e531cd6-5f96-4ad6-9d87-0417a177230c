@@ -6,34 +6,13 @@ This kata uses a Python virtual environment. To setup your virtual environment f
 
 ### Requirements
 
-Be sure that you have installed Python 3.7 as that is the version I used for this kata.
-
-### Mac or Linux
-
-```shell script
-pip install virtualenvwrapper
-export WORKON_HOME=~/.virtualenvs
-mkdir -p $WORKON_HOME
-source /usr/local/bin/virtualenvwrapper.sh
-
-mkvirtualenv --python=python3.7 pencil-durability
-which python # do this to make sure your virtualenv is active
-
-# if the virtualenv is not active do the following
-workon pencil-durability
-```
-
-### Windows (Command Prompt not Powershell)
+Be sure that you have installed Python 3.7 as that is the version I used for this kata. Also ensure that python3 
+and pip3 are in your path.
 
 ```shell script
-# Windows Command Prompt (virtualenvwrapper commands won't work in powershell)
-pip install virtualenvwrapper-win
+pip3 install --user pipenv # installs pipenv on your machine
 
-# At this point you will need to add Python to your PATH variable.
-# Optional: Set the WORKON_HOME environment variable to your preferred location
-
-mkvirtualenv --python=python3.7 pencil-durability
-workon pencil-durability
+pipenv install
 ```
 
 ## Running Tests
@@ -41,8 +20,6 @@ workon pencil-durability
 Be sure that you have a virtual env setup prior to doing the following.
 
 ```shell script
-pip install -r requirements.txt
-
 paver test
 ```
 
