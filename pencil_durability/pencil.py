@@ -42,4 +42,5 @@ class Pencil:
         return LOWERCASE_CHARACTER_COST
 
     def sharpen(self):
+        self.length -= 1
         self.durability = self.initial_durability

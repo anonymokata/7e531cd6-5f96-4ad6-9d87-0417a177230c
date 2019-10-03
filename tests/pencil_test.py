@@ -88,5 +88,10 @@ class PencilTests(unittest.TestCase):
     def test_pencil_length_defaults_to_ten(self):
         self.assertEqual(10, self.pencil.length)
 
+    def test_sharpening_a_pencil_reduces_the_length_by_one(self):
+        self.pencil.sharpen()
+
+        self.assertEqual(9, self.pencil.length)
+
 if __name__ == '__main__':
     unittest.main()
