@@ -6,6 +6,7 @@ DEFAULT_DURABILITY = 20
 
 class Pencil:
     def __init__(self, durability=DEFAULT_DURABILITY):
+        self.initial_durability = durability
         self.durability = durability
 
     def write(self, text, paper):
@@ -40,4 +41,4 @@ class Pencil:
         return LOWERCASE_CHARACTER_COST
 
     def sharpen(self):
-        self.durability = 20
+        self.durability = self.initial_durability
