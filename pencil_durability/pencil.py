@@ -1,10 +1,13 @@
 class Pencil:
-    def __init__(self):
-        self.durability = 20
+    def __init__(self, durability=20):
+        self.durability = durability
 
     def write(self, text, paper):
-        self.durability -= Pencil._get_durability_cost_of_text(text)
+        durability_cost = Pencil._get_durability_cost_of_text(text)
+        if durability_cost > self.durability:
+            text = text[:-1] + ' '
 
+        self.durability -= durability_cost
         paper.append(text)
 
     @staticmethod

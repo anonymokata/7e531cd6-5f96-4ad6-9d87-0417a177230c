@@ -46,5 +46,13 @@ class PencilTests(unittest.TestCase):
 
         self.assertEqual(14, self.pencil.durability)
 
+    def test_text_that_requires_more_durability_than_available_uses_spaces_for_remaining_letters(self):
+        pencil = Pencil(durability=5)
+        paper = Paper()
+
+        pencil.write('Aasdf', paper)
+
+        self.assertEqual('Aasd ', paper.text)
+
 if __name__ == '__main__':
     unittest.main()
