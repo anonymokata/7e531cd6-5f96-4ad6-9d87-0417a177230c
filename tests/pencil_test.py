@@ -24,22 +24,17 @@ class PencilTests(unittest.TestCase):
         self.assertEqual('Sally sells sea shells down by the sea shore', paper.text)
 
     def test_pencil_durability_defaults_to_twenty(self):
-        pencil = Pencil()
-        self.assertEqual(20, pencil.durability)
+        self.assertEqual(20, self.pencil.durability)
 
     def test_writing_lower_case_letters_decreases_durability_by_one(self):
-        pencil = Pencil()
+        self.pencil.write('a', Paper())
 
-        pencil.write('a', Paper())
-
-        self.assertEqual(19, pencil.durability)
+        self.assertEqual(19, self.pencil.durability)
 
     def test_writing_multiple_lower_case_letters_decreases_durability_for_each_letter(self):
-        pencil = Pencil()
+        self.pencil.write('aaa', Paper())
 
-        pencil.write('aaa', Paper())
-
-        self.assertEqual(17, pencil.durability)
+        self.assertEqual(17, self.pencil.durability)
 
 if __name__ == '__main__':
     unittest.main()
