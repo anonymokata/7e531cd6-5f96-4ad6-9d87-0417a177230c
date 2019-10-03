@@ -14,7 +14,9 @@ class Pencil:
     def _get_durability_cost_of_text(text):
         cost = 0
         for char in text:
-            if char.isupper():
+            if char == ' ':
+                pass
+            elif char.isupper():
                 cost += 2
             else:
                 cost += 1
