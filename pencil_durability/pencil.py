@@ -8,6 +8,7 @@ class Pencil:
     def __init__(self, durability=DEFAULT_DURABILITY):
         self.initial_durability = durability
         self.durability = durability
+        self.length = 10
 
     def write(self, text, paper):
         for char in text:

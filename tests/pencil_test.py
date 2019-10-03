@@ -85,5 +85,8 @@ class PencilTests(unittest.TestCase):
 
         self.assertEqual(54, pencil.durability)
 
+    def test_pencil_length_defaults_to_ten(self):
+        self.assertEqual(10, self.pencil.length)
+
 if __name__ == '__main__':
     unittest.main()
