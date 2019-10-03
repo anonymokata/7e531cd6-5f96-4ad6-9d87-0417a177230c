@@ -114,6 +114,13 @@ class PencilTests(unittest.TestCase):
 
         self.assertEqual(8, pencil.durability)
 
+    def test_erasing_text_from_paper_replaces_the_text_with_spaces(self):
+        paper = Paper('This is some text')
+
+        self.pencil.erase('text', paper)
+
+        self.assertEqual('This is some     ', paper.text)
+
 
 if __name__ == '__main__':
     unittest.main()

@@ -48,3 +48,7 @@ class Pencil:
 
         self.length -= 1
         self.durability = self.initial_durability
+
+    def erase(self, text, paper):
+        replacement = ' ' * len(text)
+        paper.text = paper.text.replace(text, replacement)
