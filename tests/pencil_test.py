@@ -128,6 +128,8 @@ class PencilTests(unittest.TestCase):
 
         self.assertEqual('something goes in this     thing', paper.text)
 
+    def test_eraser_durability_defaults_to_five(self):
+        self.assertEqual(5, self.pencil.eraser_durability)
 
 if __name__ == '__main__':
     unittest.main()
