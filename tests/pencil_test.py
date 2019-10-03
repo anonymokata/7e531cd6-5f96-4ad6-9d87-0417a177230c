@@ -134,5 +134,19 @@ class PencilTests(unittest.TestCase):
 
         self.assertEqual(4, self.pencil.eraser_durability)
 
+    def test_erasing_text_degrades_eraser_by_one_for_each_letter_erased(self):
+        paper = Paper('something')
+
+        self.pencil.erase('thing', paper)
+
+        self.assertEqual(0, self.pencil.eraser_durability)
+
+    def test_erasing_more_letters_then_eraser_has_durability_leaves_remaining_letters_intact(self):
+        paper = Paper('this is a long sentence')
+
+        self.pencil.erase('sentence', paper)
+
+        self.assertEqual('this is a long sen     ', paper.text)
+
 if __name__ == '__main__':
     unittest.main()
