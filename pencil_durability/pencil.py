@@ -53,7 +53,14 @@ class Pencil:
         self.durability = self.initial_durability
 
     def erase(self, text, paper):
-        text_to_replace = text if len(text) <= self.eraser_durability else reverse_string(reverse_string(text)[:self.eraser_durability])
+        text_to_replace = self._get_text_to_replace(text)
         replacement = ' ' * len(text_to_replace)
         paper.replace_last_with(text_to_replace, replacement)
         self.eraser_durability -= len(text_to_replace)
+
+    def _get_text_to_replace(self, text):
+        if len(text) <= self.eraser_durability:
+            return text
+
+        reversed_letters_that_can_be_erased = reverse_string(text)[:self.eraser_durability]
+        return reverse_string(reversed_letters_that_can_be_erased)
