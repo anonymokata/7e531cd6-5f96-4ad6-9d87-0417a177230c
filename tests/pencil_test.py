@@ -9,6 +9,7 @@ class PencilTests(unittest.TestCase):
     def setUp(self):
         self.pencil = Pencil()
 
+    @unittest.skip
     def test_pencil_writes_text_to_paper(self):
         paper = Paper()
 
@@ -16,6 +17,7 @@ class PencilTests(unittest.TestCase):
 
         self.assertEqual('Sally sells sea shells', paper.text)
 
+    @unittest.skip
     def test_pencil_appends_to_text_already_on_paper(self):
         paper = Paper('Sally sells sea shells')
 
@@ -53,6 +55,11 @@ class PencilTests(unittest.TestCase):
         pencil.write('Aasdf', paper)
 
         self.assertEqual('Aasd ', paper.text)
+
+    def test_writing_spaces_does_not_affect_durability(self):
+        self.pencil.write('   ', Paper())
+
+        self.assertEqual(20, self.pencil.durability)
 
 if __name__ == '__main__':
     unittest.main()
