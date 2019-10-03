@@ -1,4 +1,4 @@
-from pencil_durability.string_utilities import reverse_string_replace, reverse_string
+from pencil_durability.string_utilities import reverse_string
 
 WHITESPACE_CHARACTER_COST = 0
 UPPERCASE_CHARACTER_COST = 2
@@ -53,14 +53,15 @@ class Pencil:
         self.durability = self.initial_durability
 
     def erase(self, text, paper):
-        text_to_replace = self._get_text_to_replace(text)
+        text_to_replace = self._get_text_to_replace(text, self.eraser_durability)
         replacement = ' ' * len(text_to_replace)
         paper.replace_last_with(text_to_replace, replacement)
         self.eraser_durability -= len(text_to_replace)
 
-    def _get_text_to_replace(self, text):
-        if len(text) <= self.eraser_durability:
+    @staticmethod
+    def _get_text_to_replace(text, eraser_durability):
+        if len(text) <= eraser_durability:
             return text
 
-        reversed_letters_that_can_be_erased = reverse_string(text)[:self.eraser_durability]
+        reversed_letters_that_can_be_erased = reverse_string(text)[:eraser_durability]
         return reverse_string(reversed_letters_that_can_be_erased)
