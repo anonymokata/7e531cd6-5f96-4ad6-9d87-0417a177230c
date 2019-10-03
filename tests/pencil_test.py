@@ -9,7 +9,6 @@ class PencilTests(unittest.TestCase):
     def setUp(self):
         self.pencil = Pencil()
 
-    @unittest.skip
     def test_pencil_writes_text_to_paper(self):
         paper = Paper()
 
@@ -17,7 +16,6 @@ class PencilTests(unittest.TestCase):
 
         self.assertEqual('Sally sells sea shells', paper.text)
 
-    @unittest.skip
     def test_pencil_appends_to_text_already_on_paper(self):
         paper = Paper('Sally sells sea shells')
 
