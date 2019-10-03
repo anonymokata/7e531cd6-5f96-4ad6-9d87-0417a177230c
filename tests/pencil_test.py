@@ -9,6 +9,11 @@ class PencilTests(unittest.TestCase):
     def setUp(self):
         self.pencil = Pencil()
 
+    def test_pencil_should_have_default_settings(self):
+        self.assertEqual(20, self.pencil.durability)
+        self.assertEqual(10, self.pencil.length)
+        self.assertEqual(5, self.pencil.eraser_durability)
+
     def test_pencil_writes_text_to_paper(self):
         paper = Paper()
 
@@ -22,9 +27,6 @@ class PencilTests(unittest.TestCase):
         self.pencil.write(' down by the sea shore', paper)
 
         self.assertEqual('Sally sells sea shells down by the sea shore', paper.text)
-
-    def test_pencil_durability_defaults_to_twenty(self):
-        self.assertEqual(20, self.pencil.durability)
 
     def test_pencil_created_with_negative_durability_has_zero_durability(self):
         pencil = Pencil(durability=-1)
@@ -90,9 +92,6 @@ class PencilTests(unittest.TestCase):
 
         self.assertEqual(54, pencil.durability)
 
-    def test_pencil_length_defaults_to_ten(self):
-        self.assertEqual(10, self.pencil.length)
-
     def test_sharpening_a_pencil_reduces_the_length_by_one(self):
         self.pencil.sharpen()
 
@@ -127,9 +126,6 @@ class PencilTests(unittest.TestCase):
         self.pencil.erase('some', paper)
 
         self.assertEqual('something goes in this     thing', paper.text)
-
-    def test_eraser_durability_defaults_to_five(self):
-        self.assertEqual(5, self.pencil.eraser_durability)
 
 if __name__ == '__main__':
     unittest.main()
