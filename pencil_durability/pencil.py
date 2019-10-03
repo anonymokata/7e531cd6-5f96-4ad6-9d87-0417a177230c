@@ -8,13 +8,20 @@ class Pencil:
 
     def _write_character(self, char, paper):
         cost = Pencil._determine_cost_of_character(char)
+        self._write_character_to_paper(char, cost, paper)
+        self._reduce_durability_by_character_cost(cost)
 
+    def _reduce_durability_by_character_cost(self, cost):
+        self.durability -= cost
+
+    def _write_character_to_paper(self, char, cost, paper):
         character_to_append = ' '
         if self._can_afford_character(cost):
             character_to_append = char
-            
         paper.append(character_to_append)
-        self.durability -= cost
+
+    def _can_afford_character(self, cost):
+        return self.durability >= cost
 
     @staticmethod
     def _determine_cost_of_character(char):
@@ -25,7 +32,4 @@ class Pencil:
             return 2
 
         return 1
-
-    def _can_afford_character(self, cost):
-        return self.durability >= cost
 
