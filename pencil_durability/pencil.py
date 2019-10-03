@@ -1,3 +1,5 @@
+from pencil_durability.string_utilities import reverse_string_replace
+
 WHITESPACE_CHARACTER_COST = 0
 UPPERCASE_CHARACTER_COST = 2
 LOWERCASE_CHARACTER_COST = 1
@@ -51,6 +53,4 @@ class Pencil:
 
     def erase(self, text, paper):
         replacement = ' ' * len(text)
-        reversed_paper_text = paper.text[::-1]
-        reversed_text = text[::-1]
-        paper.text = reversed_paper_text.replace(reversed_text, replacement, 1)[::-1]
+        paper.text = reverse_string_replace(paper.text, text, replacement, 1)
