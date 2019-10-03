@@ -1,3 +1,51 @@
+# Dev Setup
+
+## Python Virtual Env
+
+This kata uses a Python virtual environment. To setup your virtual environment follow the instructions below:
+
+### Requirements
+
+Be sure that you have installed Python 3.7 as that is the version I used for this kata.
+
+### Mac or Linux
+
+```shell script
+pip install virtualenvwrapper
+export WORKON_HOME=~/.virtualenvs
+mkdir -p $WORKON_HOME
+source /usr/local/bin/virtualenvwrapper.sh
+
+mkvirtualenv --python=python3.7 pencil-durability
+which python # do this to make sure your virtualenv is active
+
+# if the virtualenv is not active do the following
+workon pencil-durability
+```
+
+### Windows (Command Prompt not Powershell)
+
+```shell script
+# Windows Command Prompt (virtualenvwrapper commands won't work in powershell)
+pip install virtualenvwrapper-win
+
+# At this point you will need to add Python to your PATH variable.
+# Optional: Set the WORKON_HOME environment variable to your preferred location
+
+mkvirtualenv --python=python3.7 pencil-durability
+workon pencil-durability
+```
+
+## Running Tests
+
+Be sure that you have a virtual env setup prior to doing the following.
+
+```shell script
+pip install -r requirements.txt
+
+paver test
+```
+
 # Pencil Durability Kata
 The purpose of the Pencil Durability Kata is to write code to simulate, first coarsely and then more faithfully, an ordinary graphite pencil. It includes writing and editing text, point degradation, using the eraser, and sharpening the pencil. The point of this kata is to provide a larger-than-trivial exercise that can be used to practice TDD. A significant portion of the effort will be in determining which tests should be written and, more importantly, written next.
 
