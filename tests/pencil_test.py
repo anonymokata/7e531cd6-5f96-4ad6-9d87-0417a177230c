@@ -26,6 +26,11 @@ class PencilTests(unittest.TestCase):
     def test_pencil_durability_defaults_to_twenty(self):
         self.assertEqual(20, self.pencil.durability)
 
+    def test_pencil_created_with_negative_durability_has_zero_durability(self):
+        pencil = Pencil(durability=-1)
+
+        self.assertEqual(0, pencil.durability)
+
     def test_writing_lower_case_letters_decreases_durability_by_one(self):
         self.pencil.write('a', Paper())
 
@@ -108,6 +113,7 @@ class PencilTests(unittest.TestCase):
         pencil.sharpen()
 
         self.assertEqual(8, pencil.durability)
+
 
 if __name__ == '__main__':
     unittest.main()

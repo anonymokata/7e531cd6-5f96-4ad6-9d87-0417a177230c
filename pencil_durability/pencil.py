@@ -8,7 +8,7 @@ DEFAULT_LENGTH = 10
 class Pencil:
     def __init__(self, durability=DEFAULT_DURABILITY, length=DEFAULT_LENGTH):
         self.initial_durability = durability
-        self.durability = durability
+        self.durability = durability if durability >= 0 else 0
         self.length = length if length >= 0 else 0
 
     def write(self, text, paper):
