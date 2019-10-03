@@ -1,3 +1,3 @@
 class Paper:
-    def __init__(self):
-        self.text = None
+    def __init__(self, text =''):
+        self.text = text
