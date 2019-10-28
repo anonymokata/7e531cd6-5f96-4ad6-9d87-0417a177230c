@@ -5,6 +5,7 @@ UPPERCASE_CHARACTER_COST = 2
 LOWERCASE_CHARACTER_COST = 1
 DEFAULT_DURABILITY = 20
 DEFAULT_LENGTH = 10
+CONFLICT_INDICATOR = '@'
 
 
 class Pencil:
@@ -68,8 +69,15 @@ class Pencil:
 
     def edit(self, new_text, start_index, paper):
         for i in range(0, len(new_text)):
-            if paper.text[i + start_index].isspace():
-                paper.insert(new_text[i], start_index + i)
-            else:
-                paper.insert('@', start_index + i)
+            character_to_insert = self._get_character_to_insert(i, new_text, paper, start_index)
+            paper.insert(character_to_insert, start_index + i)
 
+    @staticmethod
+    def _get_character_to_insert(i, new_text, paper, start_index):
+        existing_character = paper.text[i + start_index]
+        new_character = new_text[i]
+
+        if existing_character.isspace():
+            return new_character
+
+        return CONFLICT_INDICATOR
