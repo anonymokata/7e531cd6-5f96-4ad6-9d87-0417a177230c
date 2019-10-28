@@ -148,5 +148,12 @@ class PencilTests(unittest.TestCase):
 
         self.assertEqual('this is a long sen     ', paper.text)
 
+    def test_editing_text_replaces_whitespaces_with_the_new_word(self):
+        paper = Paper('th      my favorite')
+
+        self.pencil.edit('is is', 2, paper)
+
+        self.assertEqual('this is my favorite', paper.text)
+
 if __name__ == '__main__':
     unittest.main()

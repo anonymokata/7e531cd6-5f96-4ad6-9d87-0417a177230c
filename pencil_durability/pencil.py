@@ -65,3 +65,6 @@ class Pencil:
 
         reversed_letters_that_can_be_erased = reverse_string(text)[:eraser_durability]
         return reverse_string(reversed_letters_that_can_be_erased)
+
+    def edit(self, new_text, start_index, paper):
+        paper.insert(new_text, start_index)
