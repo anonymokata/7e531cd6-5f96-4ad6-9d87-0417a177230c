@@ -67,4 +67,9 @@ class Pencil:
         return reverse_string(reversed_letters_that_can_be_erased)
 
     def edit(self, new_text, start_index, paper):
-        paper.insert(new_text, start_index)
+        for i in range(0, len(new_text)):
+            if paper.text[i + start_index].isspace():
+                paper.insert(new_text[i], start_index + i)
+            else:
+                paper.insert('@', start_index + i)
+

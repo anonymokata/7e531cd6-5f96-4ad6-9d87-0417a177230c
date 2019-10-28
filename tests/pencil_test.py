@@ -155,5 +155,12 @@ class PencilTests(unittest.TestCase):
 
         self.assertEqual('this is my favorite', paper.text)
 
+    def test_editing_text_replaces_one_conflicting_character_with_conflict_character(self):
+        paper = Paper('this is    favorite')
+
+        self.pencil.edit('my t', 8, paper)
+
+        self.assertEqual('this is my @avorite', paper.text)
+
 if __name__ == '__main__':
     unittest.main()
