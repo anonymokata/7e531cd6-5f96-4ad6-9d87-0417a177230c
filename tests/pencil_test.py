@@ -162,5 +162,13 @@ class PencilTests(unittest.TestCase):
 
         self.assertEqual('this is my @avorite', paper.text)
 
+    def test_editing_text_replaces_all_conflicting_characters_with_conflict_character(self):
+        paper = Paper(   'I sure hope this works')
+
+        self.pencil.edit('it didn\'t work', 0, paper)
+
+        self.assertEqual('@t@@@@n@@@@o@@is works', paper.text)
+
+
 if __name__ == '__main__':
     unittest.main()
